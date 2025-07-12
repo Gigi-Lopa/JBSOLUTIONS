@@ -11,15 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function addActiveClass(currentSectionId) {
-    const activeLink = document.querySelector(
-      `.fbs__net-navbar .scroll-link[href="#${currentSectionId}"]`
-    );
-    if (activeLink) {
-      activeLink.classList.add("active");
-    }
-  }
-
   function getCurrentSection() {
     let currentSection = null;
     let minDistance = Infinity;
@@ -37,16 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return currentSection;
   }
-
-  function updateActiveLink() {
-    const currentSectionId = getCurrentSection();
-    if (currentSectionId) {
-      removeActiveClasses();
-      addActiveClass(currentSectionId);
-    }
-  }
-
-  window.addEventListener("scroll", updateActiveLink);
 
   const portfolioGrid = document.querySelector('#portfolio-grid');
   if (portfolioGrid) {
@@ -538,4 +519,21 @@ const countdownInit = () => {
   }, 1000);
 };
 document.addEventListener('DOMContentLoaded', countdownInit);
-
+  const heroSwiper = new Swiper('#heroSwiper', {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    // Optional nice fade between slides
+    effect: 'fade',
+    fadeEffect: { crossFade: true }
+  });
