@@ -1427,3 +1427,6 @@ h6 {
 .slide-content p{
   color: #f7f7f7;
 }
+.child-inner .container{
+  text-align: center;
+}
